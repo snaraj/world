@@ -41,27 +41,12 @@ class Tribe:
 		self.roles_directory[role_name] =  ''
 
 
-	def add_to_role(self, unique_identifier, *args):
+	def add_to_role(self, Human, *args):
 		for arg in args: 
 			if arg in self.roles_directory:
-				self.roles_directory[str(arg)] = unique_identifier
+				self.roles_directory[str(arg)] = Human.get_human_identifier()
 			else:
 				return 'Unable to add {Human.get_human_name} to role {arg}'
 
 	def get_name_from_identifier(self, unique_identifier):
 		pass
-
-
-
-ji_uxijui = Human("Samuel")
-tribe = Tribe(population=1,name_of_founder=ji_uxijui.get_human_name())
-tribe.add_to_role(ji_uxijui.human_identifier, 'base', 'warrior')
-
-# tribe.create_role('wiz')
-tribe.create_role('')
-print(tribe.roles_directory)
-
-
-#print(tribe)
-
-
