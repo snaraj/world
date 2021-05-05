@@ -48,6 +48,9 @@ class Tribe:
 			else:
 				return 'Unable to add {Human.get_human_name} to role {arg}'
 
+	def get_name_from_identifier(self, unique_identifier):
+		pass
+
 
 
 ji_uxijui = Human("Samuel")

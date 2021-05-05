@@ -1,13 +1,12 @@
 '''
 Defines the blueprint for a human.
 '''
+from abc import ABC, abstractmethod
 import uuid
 
-class Human():
-	
-	def __init__(self, name='Unknown', age=None):
-		self.name = name
-		self.age = age
+class Human(ABC):
+
+	def __init__(self):
 		self.human_identifier = str(uuid.uuid4().int)
 		self.human_attribute_tree = self.HumanAttributeTree()
 
@@ -27,6 +26,8 @@ class Human():
 	def get_human_identifier(self):
 		return self.human_identifier
 
+	def get_name_from_human_identifier(self, human_identifier):
+		return 
 
 	class HumanAttributeTree():
 
@@ -49,7 +50,7 @@ class Human():
 			try: 
 				return self._human_attribute_tree_dictionary[attribute]
 			except:
-				return 'Invalid Attribute.'
+				return 'Attribute does not exist.'
 
 human = Human()
-print(human.human_attribute_tree['smart'])
+print(human.human_attribute_tree['intelligence'])
