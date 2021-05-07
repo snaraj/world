@@ -40,15 +40,3 @@ class Warrior(Human):
 			else:
 				return 'Inventory is Full.'
 				break
-
-
-
-warrior = Warrior()
-warrior.add_to_inventory('sword', 1)
-warrior.add_to_inventory('shield', 1)
-warrior.add_to_inventory('helm', 1)
-warrior.add_to_inventory('bow', 1)
-warrior.add_to_inventory('dagger', 1)
-
-# warrior.inventory['sword'] = 1
-print(warrior)
