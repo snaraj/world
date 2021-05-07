@@ -16,8 +16,7 @@ class Warrior(Human):
 	# Updated print method.	
 	def __str__(self):
 		return f'id: {self.human_identifier} \n \
-		name: {self.name} \n \
-		age: {self.age} \n \
+		NAME: {self.name} ; AGE: {self.age} ; COINS: ${self.coins} \n \
 		attributes: {self.warrior_attribute_tree} \n \
 		inventory: {self.inventory}'
 
@@ -41,6 +40,7 @@ class Warrior(Human):
 			else:
 				return 'Inventory is Full.'
 				break
+
 
 
 warrior = Warrior()
