@@ -10,8 +10,13 @@ class Shop:
 		self.name = name
 		self.catalog = catalog
 
+	# Unambigous Shop Object representation
+	def __repr__(self):
+		return 'Shop(%r, %r)' % (self.name, self.catalog)
+
+	# Readable Shop description.
 	def __str__(self):
-		return f'Shop: {self.name} \n catalog: {self.catalog}'
+		return 'It is a shop!'
 
 	# returns the catalog of the shop
 	def get_catalog(self):
@@ -42,10 +47,3 @@ class Shop:
 				return self.catalog
 		except:
 			print('Invalid entry')
-
-
-shop = Shop('ice cream wonderland', {'dull sword' : [2, 10], 'broken shield' : [1, 10], 'cap' : [2, 10]})
-print(shop.get_item_price('dull sword'))
-
-
-
