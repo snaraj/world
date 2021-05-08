@@ -1,5 +1,5 @@
 from humans.roles.warrior.warrior import Warrior
-from tribe.tribe import Tribe
+from town.town import Town
 
 class TestWarriorCreation():
 	# Testing the __init__ for creating a default warrior with default name and age.

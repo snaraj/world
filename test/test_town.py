@@ -3,15 +3,15 @@ Test Suite for testing all components of a 'town'.
 '''
 from unittest.mock import patch
 
-from town.town import town
-from humans.human import Human
+from town.town import Town
+from humans.roles.warrior.warrior import Warrior
 
 #Everything that has to do with the creation of a town
 class TestTownCreation:
     # Checks the behavior of the default constructor.
     def test_default_town_creation(self):
         town = Town()
-        assert('Unknown', 0, 'Unknown') == (town.name, town.population, town.name_of_founder)
+        assert('Unknown', 0) == (town.name, town.population)
 
     # Checks the behavior of the regular constructor.
     def test_normal_town_creation(self):
@@ -21,14 +21,13 @@ class TestTownCreation:
 #Everything that has to do with the functionability of the town Class
 class TestTownFunctions:
 	
-	# Checks the behavior of adding a Human to an existing role in town.roles_directory
-	@patch("test_human.Human.__abstractmethods__", set())
+	# Checks the behavior of adding a warrior to an existing role in town.roles_directory
 	def test_adding_to_role(self):
-		test_human = Human()
-		test_human_identifier = test_human.get_human_identifier()
+		test_warrior = Warrior()
+		test_warrior_identifier = test_warrior.get_human_identifier()
 		test_town = Town()
-		test_town.add_to_role(test_human, 'base')
-		assert test_human.human_identifier in test_town.roles_directory.values()
+		test_town.add_to_role(test_warrior, 'base')
+		assert test_warrior in test_town.roles_directory.values()
 
 
 
