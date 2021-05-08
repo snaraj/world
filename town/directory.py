@@ -1,4 +1,4 @@
-from tribe import Tribe
+from town import town
 from humans.human import Human
 
 import string
