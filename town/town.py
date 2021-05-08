@@ -1,4 +1,3 @@
-from collections import namedtuple
 import uuid
 
 from humans.human import Human
@@ -10,7 +9,7 @@ class Town:
 	}
 	
 	def __init__(self, 
-		name='Unkwown', 
+		name='Unknown', 
 		population=0):
 
 		self.name = name
