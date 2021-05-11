@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 
 import uuid
 
-from .inventory.inventory import Inventory
+from humans.inventory.inventory import Inventory
 
 class Human(ABC):
 
@@ -19,7 +19,7 @@ class Human(ABC):
 		# Human starts off with $0.
 		self.coins = 0
 
-	# Abstract getters common across all humans
+	# Abstract getters common across all roles
 	@abstractmethod
 	def get_name(self):
 		pass
@@ -35,6 +35,7 @@ class Human(ABC):
 	def get_human_identifier(self):
 		return self.human_identifier
 
+	# Inner class used to define an attribute tree that is unique to a human.
 	class HumanAttributeTree():
 
 		human_attribute_tree_dictionary = {
@@ -46,17 +47,9 @@ class Human(ABC):
 		def __init__(self, 
 					intelligence = human_attribute_tree_dictionary['intelligence'], 
 					strength = human_attribute_tree_dictionary['strength'],
-					health = human_attribute_tree_dictionary['health']):
+					health = human_attribute_tree_dictionary['health']
+		):
 
 			self.intelligence = intelligence
 			self.strength = strength
 			self.health = health
-
-		def __str__(self):
-			return f'Displaying human attribute tree: intelligence: {self.intelligence} strength: {self.strength} health: {self.health}'
-
-		def __getitem__(self, attribute):
-			try: 
-				return self.human_attribute_tree_dictionary[attribute]
-			except:
-				return 'Attribute does not exist.'
