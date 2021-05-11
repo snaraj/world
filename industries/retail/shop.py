@@ -6,7 +6,7 @@
 '''
 class Shop:
 
-	def __init__(self, name, catalog):
+	def __init__(self, name='Unknown', catalog='Empty'):
 		self.name = name
 		self.catalog = catalog
 
