@@ -1,10 +1,9 @@
 from humans.human import Human
-from humans.inventory.inventory import Inventory
 
 class Warrior(Human):
 	
 	# Inherits from human.
-	def __init__(self, name='unknown warrior', age='unknown age'):
+	def __init__(self, name='Unknown', age=0):
 		# Inherits human attributes as well as the human_attribute_tree.
 		super().__init__()
 		# Adding the attribute value 'combat abilities' to the human_attribute_tree.
@@ -12,8 +11,12 @@ class Warrior(Human):
 		# Normal warrior/human atttributes, maybe put this in Human?
 		self.name = name
 		self.age = age
+
+	# Unambiguous Warrior Object representation.
+	def __repr__(self):
+		return 'Warrior({%r}, {%r}, {%r}, {%r}' % (self.name, self.age, self.warrior_attribute_tree, self.coins)
 	
-	# Updated print method.	
+	# Readable Warrior Object representation.	
 	def __str__(self):
 		return f'id: {self.human_identifier} \n \
 		NAME: {self.name} ; AGE: {self.age} ; COINS: ${self.coins} \n \
@@ -26,17 +29,3 @@ class Warrior(Human):
 
 	def get_name(self):
 		return self.name
-
-	''' 
-	Takes in an inventory with default entries, adds items until there are no more default
-	slots open (default are treated as empty spaces). 
-	'''
-	def add_to_inventory(self, item : str, amount : int):
-		for key, value in self.inventory.items():
-			if value == None:
-				del self.inventory[key]
-				self.inventory[item] = amount
-				break
-			else:
-				return 'Inventory is Full.'
-				break
