@@ -1,10 +1,14 @@
 '''
 	A 'world' is composed of 0 or many shops, towns, beasts, humans.
 '''
+import pprint
+
 from humans.roles.warrior.warrior import Warrior
 from town.town import Town
 from industries.retail.shop import Shop
 from bestiary.wolf import Wolf
+
+pp = pprint.PrettyPrinter(indent=4)
 
 class World:
 
@@ -24,22 +28,35 @@ class World:
 	def __str__(self):
 		return f'This is {self.name}'
 
-	# Add all avaliable entities in a town.
-	def add_town(self, name, population):
+	# Add a NEW (create a new obj) element to town.
+	def add_new_town(self, name, population):
 		town = Town(name, population)
 		self.towns.append(town)
 
-	def add_shop(self, name, catalog):
+	def add_new_shop(self, name, catalog):
 		shop = Shop(name, catalog)
 		self.shops.append(shop)
 
-	def add_warrior(self, name, age):
+	def add_new_warrior(self, name, age):
 		warrior = Warrior(name, age)
 		self.humans['warriors'] = warrior
 
-	def add_wolf(self, health, dmg):
+	def add_new_wolf(self, health, dmg):
 		wolf = Wolf(health, dmg)
 		self.bestiary['wolfs'] = wolf
+
+	# add EXCISTING objs to town.
+	def add_town(self, Town):
+		self.towns.append(Town)
+
+	def add_shop(self, Shop):
+		self.shops.append(Shop)
+
+	def add_warrior(self, Warrior):
+		self.humans['warriors'] = Warrior
+
+	def add_wolf(self, Wolf):
+		self.bestiary['worlfs'] = Wolf
 
 	# Getters
 	def get_towns(self):
@@ -60,12 +77,13 @@ class World:
 def main():
 	
 	world = World('world 1')
-	world.add_town('town 1', 10)
-	world.add_shop('shop 1', {'dull sword' : [1, 10]})
-	world.add_warrior('warrior 1', 25)
-	world.add_wolf(50, 10)
+	world.add_new_town('town 1', 10)
+	world.add_new_town('town 2', 60)
+	world.add_new_shop('shop 1', {'dull sword' : [1, 10]})
+	world.add_new_warrior('warrior 1', 25)
+	world.add_new_wolf(50, 10)
 
-	print(world.display_world())
+	pp.pprint(world.get_towns())
 
 if __name__ == "__main__":
     main ()
