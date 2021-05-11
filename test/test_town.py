@@ -1,8 +1,6 @@
 '''
 Test Suite for testing all components of a 'town'.
 '''
-from unittest.mock import patch
-
 from town.town import Town
 from humans.roles.warrior.warrior import Warrior
 
@@ -28,10 +26,3 @@ class TestTownFunctions:
 		test_town = Town()
 		test_town.add_to_role(test_warrior, 'base')
 		assert test_warrior in test_town.roles_directory.values()
-
-
-
-
-
-
-
