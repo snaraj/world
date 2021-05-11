@@ -65,16 +65,3 @@ class TestWarriorInventory():
 
 		result = warrior.add_to_inventory('lance', 1)
 		assert result == 'Inventory is Full.'
-
-
-
-
-
-
-
-
-
-
-
-
-
