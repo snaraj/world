@@ -1,9 +1,15 @@
 from humans.human import Human
 
 class Warrior(Human):
-	
-	# Inherits from human.
-	def __init__(self, name='Unknown', age=0):
+
+	'''
+	every warrior should have:
+		Unique id inherited from Human
+		a name
+		age
+		base_dmg (basically dps)
+	'''
+	def __init__(self, name='Unknown', age=0, base_dmg=0):
 		# Inherits human attributes as well as the human_attribute_tree.
 		super().__init__()
 		# Adding the attribute value 'combat abilities' to the human_attribute_tree.
@@ -11,6 +17,7 @@ class Warrior(Human):
 		# Normal warrior/human atttributes, maybe put this in Human?
 		self.name = name
 		self.age = age
+		self.base_dmg = base_dmg
 
 	# Unambiguous Warrior Object representation.
 	def __repr__(self):
@@ -29,3 +36,29 @@ class Warrior(Human):
 
 	def get_name(self):
 		return self.name
+
+	# ALL warriors should be able to peform a set of commands.
+	class Behavior:
+
+		def attack(self, target):
+			target.health = target.health - self.base_dmg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
